@@ -1,0 +1,28 @@
+version: "2"
+services:
+    nginx:
+        build: docker/nginx
+        ports:
+            - 80:80
+        links:
+            - php-fpm
+        volumes:
+            - ./:/app
+    php-fpm:
+        build: docker/php-fpm
+        volumes:
+            - ./:/app
+        working_dir: /app
+        links:
+            - db:mysql
+        expose:
+            - 9001
+    db:
+        image: mysql:latest
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
