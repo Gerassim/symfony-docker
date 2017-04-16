@@ -1,5 +1,5 @@
-#Symfony docker container for development and fun
-##1. Preparing
+# Symfony docker container for development and fun
+## 1. Preparing
 Install docker, docker-compose, docker-machine
 ```bash
 $ sudo apt-get install docker docker-compose docker-machine
@@ -18,7 +18,7 @@ If you want run containers and de attach terminal use `-d` option.
 
 
 Add to host file `127.0.0.1 symfony.dev`.
-##Symfony
+## Symfony
 For using app_dev.php remove or change `app_dev.php` file if needed.
 
 
@@ -27,11 +27,11 @@ For clear dev cache use aliases:
 $ docker-compose run php-fpm sfcc
 ```
 Also use `sfccp` for prod. For composer install use `ci`.
-##Phpstorm remote xdebug
+## Phpstorm remote xdebug
 Change xdebug port to 9001 in `Settings | Languages & Frameworks | PHP | Debug`
 
 If you want you can add docker to PhpStorm in `Settings | Build, execution, deployment | Docker`
-##Usage
+## Usage
 To remove unnecessary docker images use
 ```bash
 $ ./.remove_all.bash
