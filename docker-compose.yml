@@ -1,7 +1,10 @@
 version: "2"
 services:
     nginx:
-        build: docker/nginx
+        build:
+            context: docker/nginx
+            args:
+                - DOMAIN=${DOMAIN}
         ports:
             - 80:80
         links:
