@@ -60,8 +60,8 @@ function d() {
 export -f d
 ```
 After this upgrade install composer dependencies in container is just type `d ci`. As 
-example of using symfony console command lets create some new doctrine entity `ds doctrine:create:entity`
-, yep its this simple.
+example of using symfony console command lets create some new doctrine entity
+`ds doctrine:generate:entity`, yep its this simple.
 
 ## Integration with PhpStorm
 ### Xdebug
