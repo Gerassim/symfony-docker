@@ -67,7 +67,7 @@ example of using symfony console command lets create some new doctrine entity
 ### Xdebug
 Inside container there is installed and configured xdebug php extension. All you need to do
 just configure incoming port for xdebug, in PhpStorm this is in section
-`Settings | Languages & Frameworks | PHP | Debug`
+`Settings | Languages & Frameworks | PHP | Debug`. Don\`t forget to fix path mapping. 
 
 ### Docker integration
 You can add docker to phpstorm, to see logs etc. Located under
