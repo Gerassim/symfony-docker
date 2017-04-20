@@ -1,4 +1,6 @@
 FROM php:7.1-fpm
+# arguments
+ARG USER
 
 RUN apt-get update;
 
@@ -13,6 +15,12 @@ RUN echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-
 RUN echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.remote_autostart = 1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+#add symfony installator
+RUN echo "Instaling symfony installer"
+RUN mkdir -p /usr/local/bin
+RUN curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+RUN chmod a+x /usr/local/bin/symfony
 
 # install pdo_mysql
 RUN docker-php-ext-install pdo pdo_mysql
@@ -38,8 +46,8 @@ RUN echo '#bin/bash\ncomposer install' >> /usr/bin/ci
 RUN chmod +x /usr/bin/ci
 
 
-RUN useradd -ms /bin/bash devel
+RUN useradd -ms /bin/bash $USER
 
-USER devel
+USER $USER
 
 WORKDIR /app

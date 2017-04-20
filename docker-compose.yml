@@ -9,7 +9,10 @@ services:
         volumes:
             - ./:/app
     php-fpm:
-        build: docker/php-fpm
+        build:
+            context: docker/php-fpm
+            args:
+                - USER=${user}
         volumes:
             - ./:/app
         working_dir: /app
