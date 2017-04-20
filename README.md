@@ -1,9 +1,14 @@
 # Symfony docker container for development and fun
 ## General explanation
-I use this as a gitmodule to my main project, but you can just download this as zip file and place
-in your existing symfony project, or empty directory and create fresh project as explained below.
+This little helper will manage creation of local development env with docker. It includes
+php-fpm, nginx and mysql containers. Feel free to add or remove any containers you want.
+
+I use this as a gitmodule to my main project, but you can just download this as zip file 
+and extract in your existing symfony project, or empty directory and create fresh project
+as explained below.
 ## Getting started
-Before getting up ensure that you have `docker` and `docker-compose` installed in your system.
+Before getting up ensure that you have `docker` and `docker-compose` installed in your
+system.
 
 If this is existing project just run `./config.sh`, it will create `.env`
 file for you with you user, so no issues with rights for files created inside container.
@@ -30,19 +35,15 @@ symfony cache use:
 ```bash
 $ docker-compose run php-fpm php bin/console cache:clear
 ```
-
 This is realy long command, so in container there some shortcuts for frequently used commands
-
 `sfcc` shortcut for `php bin/console cache:clear`
 
 `sfccp` shortcut for `php bin/console cache:clear -env=prod`
 
 `ci` shortcut for `composer install`
-
-So, for example, to install composer dependencies you can type `docker-compose run php-fpm ci`
-
+So, for example, to install composer dependencies you can type `docker-compose run php-fpm ci`.
 But for really lazy people like me this is still to long. You can add this code to your 
-`.bashrc` file to type even less.
+`.bashrc` file to type even less:
 ```bash
 # Runs symfony console command with arguments at php-fpm container
 function ds() {
