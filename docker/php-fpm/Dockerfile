@@ -2,11 +2,11 @@ FROM php:7.1-fpm
 # arguments
 ARG USER
 
-RUN apt-get update;
+RUN apt-get -qq update;
 
 # install php extensions
-RUN pecl install xdebug && \
-    docker-php-ext-enable xdebug  && \
+RUN pecl -q install xdebug >> /dev/null && \
+    docker-php-ext-enable xdebug >> /dev/null  && \
     docker-php-ext-install pdo pdo_mysql
 
 COPY xdebug.conf /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
@@ -20,7 +20,7 @@ RUN echo "Instaling symfony installer"  && \
 #install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer  && \
     composer --version && \
-    apt-get install -y git unzip
+    apt-get -qq install -y git unzip >> /dev/null
 
 #custom commands for easy life
 RUN echo '#bin/bash\nphp bin/console cache:clear' >> /usr/bin/sfcc && \

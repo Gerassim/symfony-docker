@@ -3,8 +3,6 @@ services:
     nginx:
         build:
             context: docker/nginx
-            args:
-                - DOMAIN=${DOMAIN}
         ports:
             - 80:80
         links:
