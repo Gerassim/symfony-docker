@@ -76,7 +76,7 @@ You can add docker to phpstorm, to see logs etc. Located under
 
 ## Docker machine
 If you prefer use docker-machine or in you os you could not use without docker-machine.
-First start new Virtualbox machine `docker-machine create test`. Now you need to know 
+First start new Virtualbox machine `docker-machine create symfony-docker-machine`. Now you need to know 
 ip address. Type `docker-machine ip symfony-docker-machine`. Then ensure that terminals
 from what you use `docker-compose` commands have right env variables: 
 `eval $(docker-machine env symfony-docker-machine)`. Don\`t forget to edit your host file.
