@@ -81,7 +81,7 @@ ip address. Type `docker-machine ip symfony-docker-machine`. Then ensure that te
 from what you use `docker-compose` commands have right env variables: 
 `eval $(docker-machine env symfony-docker-machine)`. Don\`t forget to edit your host file.
 For some strange reason in linux mount of shared folders are screwed, so you have
-manually set up shared folders in virtual box, fyl then change `WORKING_DIR` relative to
+manually set up shared folders in virtual box, then change `WORKING_DIR` relative to
 virtual box guest. As example for project in `/home/user/project` we will create shared
 folder in virtual box wit mounting path `/home/app`, and then change `WORKING_DIR` in .env
 file to `/home/app`.
