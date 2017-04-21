@@ -41,6 +41,7 @@ This is realy long command, so in container there some shortcuts for frequently 
 `sfccp` shortcut for `php bin/console cache:clear -env=prod`
 
 `ci` shortcut for `composer install`
+
 So, for example, to install composer dependencies you can type `docker-compose run php-fpm ci`.
 But for really lazy people like me this is still to long. You can add this code to your 
 `.bashrc` file to type even less:
@@ -72,3 +73,15 @@ just configure incoming port for xdebug, in PhpStorm this is in section
 ### Docker integration
 You can add docker to phpstorm, to see logs etc. Located under
 `Settings | Build, execution, deployment | Docker`
+
+##Docker machine
+If you prefer use docker-machine or in you os you could not use without docker-machine.
+First start new Virtualbox machine `docker-machine create test`. Now you need to know 
+ip address. Type `docker-machine ip symfony-docker-machine`. Then ensure that terminals
+from what you use `docker-compose` commands have right env variables: 
+`eval $(docker-machine env symfony-docker-machine)`. Don\`t forget to edit your host file.
+For some strange reason in linux mount of shared folders are screwed, so you have
+manually set up shared folders in virtual box, fyl then change `WORKING_DIR` relative to
+virtual box guest. As example for project in `/home/user/project` we will create shared
+folder in virtual box wit mounting path `/home/app`, and then change `WORKING_DIR` in .env
+file to `/home/app`.
