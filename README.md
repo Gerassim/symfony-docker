@@ -74,7 +74,7 @@ just configure incoming port for xdebug, in PhpStorm this is in section
 You can add docker to phpstorm, to see logs etc. Located under
 `Settings | Build, execution, deployment | Docker`
 
-##Docker machine
+## Docker machine
 If you prefer use docker-machine or in you os you could not use without docker-machine.
 First start new Virtualbox machine `docker-machine create test`. Now you need to know 
 ip address. Type `docker-machine ip symfony-docker-machine`. Then ensure that terminals
